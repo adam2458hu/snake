@@ -1,0 +1,136 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: black;
+	color: white;
+	font-family: Arial,sans-serif;
+	margin: 0;
+}
+
+#game {
+	width: 600px;
+	margin: 0 auto;
+}
+
+#hud {
+	background-color: #438232;
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	padding: 10px;
+}
+
+#hud > div:not(:last-child) {
+	margin-right: 40px;
+}
+
+#score {
+	display: flex;
+	padding: 5px 0 0 35px;
+}
+
+#lives {
+	background: url("./assets/images/heart.png");
+	background-size: 30px 30px;
+	background-repeat: no-repeat;
+	height: 30px;
+	width: 30px;
+	padding: 5px 0 0 35px;
+}
+
+#playerCoords {
+	margin-left: auto;
+}
+
+#field {
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #DBCA6E;
+}
+
+#field .row {
+	display: flex;
+}
+
+#info-box {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: black;
+	border: 1px solid white;
+	border-radius: 10px;
+	text-align: center;
+	padding: 20px;
+}
+
+#info-box.show {
+	display: block;
+}
+
+.square {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 30px;
+	height: 30px;
+}
+
+#field .row:nth-child(odd) .square:nth-child(odd){
+	background-color: #ADE366;
+}
+
+#field .row:nth-child(odd) .square:nth-child(even){
+	background-color: #A7D965;
+}
+
+#field .row:nth-child(even) .square:nth-child(odd){
+	background-color: #A7D965;
+}
+
+#field .row:nth-child(even) .square:nth-child(even){
+	background-color: #ADE366;
+}
+
+.sprite {
+	background: url('./assets/images/snake_sprite_sheet2.png');
+	background-size: 150px 120px;
+	height: 30px;
+	width: 30px;
+}
+
+.sprite.apple {
+	background-position: 0px -90px;
+}
+
+.sprite.player {
+	background: url('./assets/images/snake_sprite_sheet2.png');
+	background-size: 150px 120px;
+	height: 30px;
+	width: 30px;
+}
+
+.sprite.player.head {
+	background-position: -90px 0;
+}
+
+.sprite.player.body {
+	background-position: -60px -30px;
+}
+
+.sprite.player.body.turn{
+	background-position: 0px 0px;
+}
+
+.sprite.player.tail {
+	background-position: -90px -60px;
+}
+
+@keyframes changeColor {
+	0% { filter: hue-rotate(0deg); }
+	100% { filter: hue-rotate(360deg); }
+}
